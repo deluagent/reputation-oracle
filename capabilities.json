@@ -1,0 +1,41 @@
+{
+  "name": "ReputationOracle",
+  "description": "Query onchain reputation scores for agents and services on Base. $0.001 USDC per call via x402.",
+  "version": "1.0.0",
+  "paymentStandard": "x402",
+  "pricePerCall": "$0.001 USDC",
+  "network": "base",
+  "chainId": 8453,
+  "serviceRegistryId": 1,
+  "category": "Identity",
+  "endpoints": [
+    {
+      "path": "/reputation/:address",
+      "method": "GET",
+      "description": "Reputation score for any address from ServiceRegistry + AgentRegistry",
+      "price": "$0.001"
+    },
+    {
+      "path": "/services",
+      "method": "GET",
+      "description": "All services sorted by reputation score",
+      "price": "$0.001"
+    },
+    {
+      "path": "/health",
+      "method": "GET",
+      "description": "Service health + metadata",
+      "price": "free"
+    },
+    {
+      "path": "/.well-known/capabilities",
+      "method": "GET",
+      "description": "This manifest",
+      "price": "free"
+    }
+  ],
+  "contracts": {
+    "serviceRegistry": "0xc6922DD8681B3d57A2955a5951E649EF38Ea1192",
+    "agentRegistry": "0x9f86f2a79fab5a1441f2b2911e75aed442ba4b62"
+  }
+}
